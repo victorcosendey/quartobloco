@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>quartobloco // sistema_v4.5</title>
+  <title>quartobloco // sistema_v5.0</title>
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -50,11 +50,20 @@
     .persona-window {
         background-color: var(--paper-white);
         border: 4px solid var(--persona-black);
-        box-shadow: 10px 10px 0px var(--persona-amber); 
-        margin: 2rem auto;
+        box-shadow: 6px 6px 0px var(--persona-amber);
+        margin: 1rem auto;
+        width: 95%;
         max-width: 1200px;
         position: relative;
         transform: rotate(-0.5deg); 
+    }
+
+    @media (min-width: 768px) {
+        .persona-window {
+            box-shadow: 10px 10px 0px var(--persona-amber);
+            margin: 2rem auto;
+            width: auto;
+        }
     }
 
     .window-bar {
@@ -68,7 +77,7 @@
     }
 
     .traffic-lights { display: flex; gap: 10px; }
-    .dot { width: 16px; height: 16px; border-radius: 50%; border: 2px solid var(--paper-white); }
+    .dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--paper-white); }
     .dot-red { background-color: #ff4757; }
     .dot-yellow { background-color: var(--persona-amber); }
     .dot-green { background-color: #2ed573; }
@@ -80,7 +89,7 @@
         color: var(--persona-amber);
         padding: 0.8rem 2rem;
         font-family: 'Righteous';
-        font-size: 1.1rem;
+        font-size: 1rem;
         border: 2px solid var(--persona-amber);
         transform: skew(-10deg); 
         transition: all 0.2s;
@@ -104,12 +113,12 @@
         background-color: #fff;
         border: 2px solid var(--persona-black);
         color: var(--persona-black);
-        padding: 0.4rem 1rem;
+        padding: 0.4rem 0.8rem;
         font-family: 'Righteous';
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         text-decoration: none;
         transition: all 0.2s;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
         box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
     }
     .btn-quick-link:hover {
@@ -155,25 +164,21 @@
         box-shadow: 8px 8px 0px var(--persona-black); z-index: 10;
     }
     
-    /* Estilo Logo (ADESIVO LIMPO) */
+    /* Estilo Logo (Adesivo Limpo) */
     .logo-sticker {
         transform: rotate(-3deg);
         transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         max-width: 320px;
         width: 100%;
-        /* Sombra preta dura seguindo o contorno */
         filter: drop-shadow(5px 5px 0px var(--persona-black)); 
         position: relative; 
     }
     
     .logo-sticker:hover {
         transform: rotate(2deg) scale(1.05);
-        /* Sombra âmbar no hover */
         filter: drop-shadow(5px 5px 0px var(--persona-amber));
         cursor: help;
     }
-
-    /* (Classe tape-sticker REMOVIDA) */
 
     .bg-paper-white { background-color: var(--paper-white); }
     .modal-overlay { background-color: rgba(0, 0, 0, 0.9); }
@@ -181,11 +186,12 @@
 </head>
 <body class="p-2 md:p-8">
 
-  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-11/12 max-w-4xl">
-      <div class="bg-black text-amber-500 border-2 border-amber-500 p-3 flex justify-between items-center shadow-[4px_4px_0px_#fff] font-bold font-mono text-sm md:text-base rounded-sm">
-          <span class="hidden md:inline">QUARTOBLOCO_OS // V.4.5</span>
-          <span class="md:hidden">QB_OS</span>
-          <div class="flex gap-4 md:gap-8">
+  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-[95%] md:w-11/12 max-w-4xl">
+      <div class="bg-black text-amber-500 border-2 border-amber-500 p-2 md:p-3 flex justify-between items-center shadow-[4px_4px_0px_#fff] font-bold font-mono rounded-sm">
+          <span class="hidden md:inline text-base">QUARTOBLOCO_OS // V.5.0</span>
+          <span class="md:hidden text-xs">QB_OS</span>
+          
+          <div class="flex gap-3 md:gap-8 text-[10px] md:text-base">
               <a href="#portfolio" class="hover:text-white hover:underline decoration-wavy">TRABALHOS</a>
               <a href="#servicos" class="hover:text-white hover:underline decoration-wavy">SERVIÇOS</a>
               <a href="#sobre" class="hover:text-white hover:underline decoration-wavy">SOBRE</a>
@@ -203,25 +209,25 @@
             <div class="dot dot-yellow"></div>
             <div class="dot dot-green"></div>
         </div>
-        <div class="tracking-widest font-bold">C:\USUARIO\VICTOR\PORTFOLIO.EXE</div>
-        <i class="fas fa-terminal"></i>
+        <div class="tracking-widest font-bold text-xs md:text-base truncate ml-2">C:\USUARIO\VICTOR\PORTFOLIO.EXE</div>
+        <i class="fas fa-terminal ml-2"></i>
     </div>
 
-    <div class="p-6 md:p-16">
+    <div class="p-4 md:p-16">
 
         <section id="hero" class="mb-24">
-            <div class="flex flex-col md:flex-row items-center gap-12">
+            <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div class="w-full md:w-1/2">
-                    <h1 class="text-5xl md:text-7xl mb-6 leading-none text-gray-800">
+                    <h1 class="text-4xl md:text-7xl mb-6 leading-none text-gray-800">
                         IDENTIDADE <br>
                         <span class="text-amber-500 bg-black px-2 inline-block transform -skew-x-6">SONORA</span> & <br>
                         VISUAL
                     </h1>
-                    <p class="text-lg md:text-xl mb-8 font-bold text-gray-600 border-l-4 border-amber-500 pl-6 py-2 max-w-lg">
+                    <p class="text-base md:text-xl mb-8 font-bold text-gray-600 border-l-4 border-amber-500 pl-4 md:pl-6 py-2 max-w-lg">
                         Arquitetando som e imagem com textura. <br>
                         Produção musical e design direto do quartobloco.
                     </p>
-                    <a href="#portfolio" class="btn-persona">
+                    <a href="#portfolio" class="btn-persona w-full md:w-auto text-center">
                         <span>VER PROJETOS</span>
                     </a>
                 </div>
@@ -237,12 +243,12 @@
                             <div class="text-xs font-mono text-gray-400">quick_links.exe</div>
                         </div>
 
-                        <div class="grid grid-cols-2 gap-4 p-2">
+                        <div class="grid grid-cols-2 gap-2 md:gap-4 p-2">
                             <div class="flex flex-col items-center justify-center">
                                 <img src="profileamrv1.jpg" onerror="this.src='https://placehold.co/300x300/111/F59E0B?text=PROFILE'" class="w-full aspect-square object-cover border-2 border-black shadow-sm rounded-sm mb-2">
                                 <div class="text-center">
-                                    <h3 class="text-xl leading-none text-black">victor</h3>
-                                    <p class="text-xs font-mono text-gray-500 mt-1">@victorcosendey</p>
+                                    <h3 class="text-lg md:text-xl leading-none text-black">victor</h3>
+                                    <p class="text-[10px] md:text-xs font-mono text-gray-500 mt-1">@victorcosendey</p>
                                 </div>
                             </div>
                             <div class="flex flex-col justify-center">
@@ -262,7 +268,7 @@
                         </div>
 
                         <div class="border-t-2 border-black mt-2 pt-2 text-center">
-                            <a href="mailto:contato@quartobloco.com" class="text-xs font-mono text-amber-600 hover:underline">contact me -></a>
+                            <a href="mailto:victorcosendey@outlook.com?subject=Contato%20pelo%20Site&body=oi,%20tenho%20interesse%20em%20trabalhar%20com%20voce" class="text-xs font-mono text-amber-600 hover:underline">contact me -></a>
                         </div>
                     </div>
                 </div>
@@ -272,9 +278,7 @@
         <hr class="dashed-hr">
 
         <section id="sobre" class="mb-24">
-            
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
-                
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-20">
                 <div class="flex justify-center order-2 md:order-1 relative">
                     <div class="logo-sticker relative">
                         <img src="logoquartoblocosemfundo.png" alt="Logo Quartobloco" class="w-full h-auto block relative z-10">
@@ -282,8 +286,8 @@
                 </div>
 
                 <div class="order-1 md:order-2">
-                    <h2 class="text-4xl mb-6"><i class="fas fa-cube text-amber-500 mr-2"></i>SOBRE_O_BLOCO</h2>
-                    <div class="text-lg space-y-4 text-gray-700 leading-relaxed font-medium">
+                    <h2 class="text-3xl md:text-4xl mb-4 md:mb-6"><i class="fas fa-cube text-amber-500 mr-2"></i>SOBRE_O_BLOCO</h2>
+                    <div class="text-base md:text-lg space-y-4 text-gray-700 leading-relaxed font-medium">
                         <p>O quartobloco é um laboratório criativo de arte digital.</p>
                         <p class="bg-black text-white inline-block px-2 transform -skew-x-3">A arte precisa de textura.</p>
                         <p>É onde o orgânico encontra o digital. Onde o som ganha forma e a imagem, ritmo.</p>
@@ -291,15 +295,15 @@
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="flex justify-center order-2 md:order-2">
                     <div class="gallery-card transform rotate-2 max-w-sm">
                         <img src="charlieformado.jpg" onerror="this.src='https://placehold.co/400x500/333/F59E0B?text=FOTO+VICTOR'" class="w-full border border-gray-200">
                     </div>
                 </div>
                 <div class="order-1 md:order-1">
-                    <h2 class="text-4xl mb-6"><i class="fas fa-user-circle text-amber-500 mr-2"></i>SOBRE_MIM</h2>
-                    <div class="text-lg space-y-4 text-gray-700 leading-relaxed font-medium">
+                    <h2 class="text-3xl md:text-4xl mb-4 md:mb-6"><i class="fas fa-user-circle text-amber-500 mr-2"></i>SOBRE_MIM</h2>
+                    <div class="text-base md:text-lg space-y-4 text-gray-700 leading-relaxed font-medium">
                         <p>Desde 2020, desenvolvo meu trabalho autoral (uma fusão de indie, rap, rock e lo-fi) e hoje venho expandindo esse universo para a produção de novos projetos musicais.</p>
                         <p class="bg-black text-white inline-block px-2 transform -skew-x-3">Produtor, Músico & Artista.</p>
                         <p>Meu foco é a identidade sonora: construir uma assinatura que traduza conceitos, sentimentos e estética. As referências vêm de jogos, animes e filmes, e ajudam a guiar tanto o som quanto a identidade visual dos projetos.</p>
@@ -313,29 +317,29 @@
 
         <section id="portfolio" class="mb-24">
             <div class="flex justify-between items-center mb-10">
-                <h2 class="highlight-title text-3xl">DIR: /PROJETOS</h2>
+                <h2 class="highlight-title text-2xl md:text-3xl">DIR: /PROJETOS</h2>
             </div>
 
             <div class="mb-16">
-                <h3 class="text-xl font-bold mb-4 flex items-center">
+                <h3 class="text-lg md:text-xl font-bold mb-4 flex items-center">
                     <i class="fas fa-music mr-2 text-amber-500"></i> ARQUIVOS DE ÁUDIO
                 </h3>
-                <div class="bg-gray-100 p-6 border-2 border-dashed border-gray-400 rounded">
+                <div class="bg-gray-100 p-4 md:p-6 border-2 border-dashed border-gray-400 rounded">
                      <p class="text-xs font-bold mb-2 font-mono">PLAYLIST: PRODUÇÕES</p>
                      <iframe src="https://open.spotify.com/embed/playlist/4poFFnGn2jXHd9zKRPIyvI?utm_source=generator&theme=0" width="100%" height="360" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border: 2px solid black; border-radius: 4px;"></iframe>
                 </div>
             </div>
 
             <div>
-                <h3 class="text-xl font-bold mb-6 flex items-center">
+                <h3 class="text-lg md:text-xl font-bold mb-6 flex items-center">
                     <i class="fas fa-eye mr-2 text-amber-500"></i> CAPAS & VISUALIZERS
                 </h3>
 
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
                     <div class="cursor-pointer" onclick="openImageModal('capas-albuns/charliecharlie1.jpg', 'INSISTE EM FICAR', 'ÁLBUM', 'Colagem digital com estética fanzine. Referências a Tokusatsu e sonhos perdidos.')">
                         <div class="gallery-card">
                             <img src="capas-albuns/charliecharlie1.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+1'" class="w-full aspect-square object-cover border border-black">
-                            <div class="mt-2 text-xs font-bold uppercase text-center bg-black text-white py-1">charlie, charlie</div>
+                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">charlie, charlie</div>
                         </div>
                     </div>
                     <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/charliecharlie2.mp4', 'VERSUS!', 'EP', 'Fusão Radiohead + Sonic. Camadas sobrepostas e nostalgia.')">
@@ -346,31 +350,31 @@
                                     <i class="fas fa-play text-white text-3xl"></i>
                                 </div>
                             </div>
-                            <div class="mt-2 text-xs font-bold uppercase text-center bg-black text-white py-1">VERSUS! (EP)</div>
+                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">VERSUS! (EP)</div>
                         </div>
                     </div>
                     <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/charliecharlieemadeinheaven3.mp4', 'MAÇÃS & MÁQUINAS', 'SINGLE', 'Glitch art saturada. Caos visual organizado.')">
                          <div class="gallery-card">
                             <img src="capas-albuns/charliecharlieemadeinheaven3.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+3'" class="w-full aspect-square object-cover border border-black">
-                            <div class="mt-2 text-xs font-bold uppercase text-center bg-black text-white py-1">maçãs & máq.</div>
+                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">maçãs & máq.</div>
                         </div>
                     </div>
                     <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/charliecharlie4.mp4', 'MEMORY CARD', 'SINGLE', 'Foto de foto. Camadas analógicas de memória.')">
                          <div class="gallery-card">
                             <img src="capas-albuns/charliecharlie4.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+4'" class="w-full aspect-square object-cover border border-black">
-                            <div class="mt-2 text-xs font-bold uppercase text-center bg-black text-white py-1">memory card</div>
+                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">memory card</div>
                         </div>
                     </div>
                     <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/madeinheaven1.mp4', 'MS 9999', 'ÁLBUM', 'Cyberpunk, code rain e falhas digitais.')">
                          <div class="gallery-card">
                             <img src="capas-albuns/madeinheaven1.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+5'" class="w-full aspect-square object-cover border border-black">
-                            <div class="mt-2 text-xs font-bold uppercase text-center bg-black text-white py-1">made in heaven</div>
+                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">made in heaven</div>
                         </div>
                     </div>
                     <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/charlicharlieekai5.mp4', 'VOCÊ PARECE UM ZUMBI', 'SINGLE', 'Colagem apocalíptica. Desenho vs Realidade.')">
                          <div class="gallery-card">
                             <img src="capas-albuns/charlicharlieekai5.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+6'" class="w-full aspect-square object-cover border border-black">
-                            <div class="mt-2 text-xs font-bold uppercase text-center bg-black text-white py-1">zumbi</div>
+                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">zumbi</div>
                         </div>
                     </div>
                 </div>
@@ -378,7 +382,7 @@
         </section>
 
         <section id="servicos" class="mb-24">
-            <h2 class="highlight-title text-3xl mb-10 mx-auto block w-max">SELECIONAR SERVIÇO</h2>
+            <h2 class="highlight-title text-2xl md:text-3xl mb-10 mx-auto block w-max">SELECIONAR SERVIÇO</h2>
             <div class="grid md:grid-cols-3 gap-8 pt-4">
                 <div class="folder-tab-container">
                     <div class="folder-tab-top"></div>
@@ -389,7 +393,7 @@
                             <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Mixagem Pro</li>
                             <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Master Streaming</li>
                         </ul>
-                        <a href="#contato" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">ESCOLHER</a>
+                        <a href="https://ig.me/m/victorcosendey" target="_blank" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">ESCOLHER</a>
                     </div>
                 </div>
                 <div class="folder-tab-container" style="margin-top: 10px;">
@@ -401,7 +405,7 @@
                             <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Visualizers (Canvas)</li>
                             <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Banners</li>
                         </ul>
-                        <a href="#contato" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">ESCOLHER</a>
+                        <a href="https://ig.me/m/victorcosendey" target="_blank" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">ESCOLHER</a>
                     </div>
                 </div>
                 <div class="folder-tab-container" style="margin-top: 30px;">
@@ -413,7 +417,7 @@
                             <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Distribuição</li>
                             <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Registro Letras</li>
                         </ul>
-                        <a href="#contato" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">ESCOLHER</a>
+                        <a href="https://ig.me/m/victorcosendey" target="_blank" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">ESCOLHER</a>
                     </div>
                 </div>
             </div>
@@ -421,15 +425,15 @@
 
         <section id="contato" class="pb-8">
             <div class="border-4 border-black p-8 md:p-12 text-center bg-white shadow-[10px_10px_0px_#000] transform rotate-1">
-                <h2 class="text-4xl mb-6">MENSAGEM_DO_SISTEMA</h2>
-                <p class="mb-8 max-w-xl mx-auto text-lg font-medium">
+                <h2 class="text-3xl md:text-4xl mb-6">MENSAGEM_DO_SISTEMA</h2>
+                <p class="mb-8 max-w-xl mx-auto text-base md:text-lg font-medium">
                     Parcerias, produções ou apenas para trocar ideia sobre música e arte. O laboratório está aberto.
                 </p>
-                <div class="flex flex-col md:flex-row justify-center gap-6">
-                    <a href="https://instagram.com/victorcosendey" target="_blank" class="btn-persona">
+                <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
+                    <a href="https://instagram.com/victorcosendey" target="_blank" class="btn-persona w-full md:w-auto text-center">
                         <span><i class="fab fa-instagram mr-2"></i> INSTAGRAM</span>
                     </a>
-                    <a href="mailto:contato@quartobloco.com" class="btn-persona">
+                    <a href="mailto:victorcosendey@outlook.com?subject=Contato%20pelo%20Site&body=oi,%20tenho%20interesse%20em%20trabalhar%20com%20voce" class="btn-persona w-full md:w-auto text-center">
                          <span><i class="far fa-envelope mr-2"></i> E-MAIL</span>
                     </a>
                 </div>
@@ -437,7 +441,7 @@
         </section>
     </div>
     
-    <div class="bg-black text-white p-2 text-xs font-mono flex justify-between uppercase">
+    <div class="bg-black text-white p-2 text-[10px] md:text-xs font-mono flex justify-between uppercase">
         <span>Memória: 84% Usada</span>
         <span>© 2025 Quartobloco</span>
     </div>
@@ -445,19 +449,19 @@
 
   <div id="capaModal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-overlay p-4">
       <div class="bg-white border-4 border-black shadow-[0_0_0_4px_#F59E0B] w-full max-w-3xl flex flex-col md:flex-row relative animate-[bounce_0.1s_ease-out]">
-          <button onclick="closeModal()" class="absolute -top-6 -right-6 bg-red-600 text-white border-4 border-black w-12 h-12 flex items-center justify-center font-bold text-xl transition-all duration-300 ease-out hover:scale-110 hover:rotate-90 z-20 shadow-[4px_4px_0px_#000]">
+          <button onclick="closeModal()" class="absolute -top-6 -right-6 bg-red-600 text-white border-4 border-black w-10 h-10 md:w-12 md:h-12 flex items-center justify-center font-bold text-lg md:text-xl transition-all duration-300 ease-out hover:scale-110 hover:rotate-90 z-20 shadow-[4px_4px_0px_#000]">
               X
           </button>
 
           <div class="w-full md:w-1/2 bg-black p-1 flex items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-black">
-             <img id="modalImage" src="" class="max-w-full max-h-[60vh] border-2 border-white hidden object-contain">
-             <video id="modalVideo" class="max-w-full max-h-[60vh] border-2 border-white hidden" loop autoplay muted playsinline></video>
+             <img id="modalImage" src="" class="max-w-full max-h-[40vh] md:max-h-[60vh] border-2 border-white hidden object-contain">
+             <video id="modalVideo" class="max-w-full max-h-[40vh] md:max-h-[60vh] border-2 border-white hidden" loop autoplay muted playsinline></video>
           </div>
 
-          <div class="w-full md:w-1/2 p-8 flex flex-col justify-center bg-paper-white">
-             <span id="modalType" class="bg-black text-amber-500 px-2 py-1 text-sm font-bold self-start mb-4 font-mono border border-amber-500 transform -skew-x-10"></span>
-             <h3 id="modalTitle" class="text-2xl font-bold mb-4 uppercase leading-none text-black"></h3>
-             <div class="text-sm font-mono leading-relaxed border-l-4 border-amber-500 pl-4 text-gray-800 font-bold">
+          <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center bg-paper-white">
+             <span id="modalType" class="bg-black text-amber-500 px-2 py-1 text-xs md:text-sm font-bold self-start mb-4 font-mono border border-amber-500 transform -skew-x-10"></span>
+             <h3 id="modalTitle" class="text-xl md:text-2xl font-bold mb-4 uppercase leading-none text-black"></h3>
+             <div class="text-xs md:text-sm font-mono leading-relaxed border-l-4 border-amber-500 pl-4 text-gray-800 font-bold">
                  <p id="modalText"></p>
              </div>
              <button onclick="closeModal()" class="mt-10 text-left underline font-bold hover:text-amber-600 uppercase font-mono text-xs">
