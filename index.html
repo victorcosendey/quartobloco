@@ -2,15 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta property="og:title" content="Quartobloco - Identidade Sonora & Visual">
-  <meta property="og:description" content="Arquitetando som e imagem com textura. Produção musical, mixagem e design.">
-  <meta property="og:image" content="https://victorcosendey.github.io/quartobloco/logoquartobloco.jpg">
-  <meta property="og:url" content="https://victorcosendey.github.io/quartobloco/">
-  <meta property="og:type" content="website">
-  
-  <title>Quartobloco | Laboratório Criativo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>quartobloco // sistema_v8.0</title>
+  
+  <meta property="og:title" content="quartobloco | Laboratório Criativo">
+  <meta property="og:description" content="Identidade Sonora e Visual. Produção musical, mixagem e design.">
+  <meta property="og:image" content="https://victorcosendey.github.io/quartobloco/logoquartobloco.jpg">
+  <meta property="og:type" content="website">
+
+  <title>quartobloco // sistema_v26.0</title>
 
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -26,237 +25,173 @@
         --paper-white: #fdfbf7;
     }
 
-    /* --- SCROLLBAR PERSONALIZADA --- */
+    /* ZERAR BORDAS (GLOBAL) */
+    * { border-radius: 0px !important; }
+    
+    /* EXCEÇÕES */
+    .dot { border-radius: 50% !important; }
+    .quick-link-icon { border-radius: 50% !important; }
+    
+    /* SCROLLBAR */
     ::-webkit-scrollbar { width: 12px; }
     ::-webkit-scrollbar-track { background: var(--persona-black); border-left: 1px solid #333; }
-    ::-webkit-scrollbar-thumb { background: var(--persona-amber); border: 2px solid var(--persona-black); border-radius: 0px; }
+    ::-webkit-scrollbar-thumb { background: var(--persona-amber); border: 2px solid var(--persona-black); }
     ::-webkit-scrollbar-thumb:hover { background: #ffb300; }
 
-    /* --- SELEÇÃO DE TEXTO --- */
     ::selection { background: var(--persona-amber); color: var(--persona-black); }
 
-    /* --- FIX GERAL DE LAYOUT --- */
-    html, body {
-        max-width: 100%;
-        overflow-x: hidden;
-        position: relative;
-    }
-
-    html {
-        scroll-behavior: smooth;
-        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="fill:black; stroke:%23F59E0B; stroke-width:1px;"><path d="M0 0 L12 4 L4 12 Z"/></svg>'), auto;
-    }
-
-    a, button, .cursor-pointer {
-        cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="fill:%23F59E0B; stroke:black; stroke-width:2px;"><path d="M0 0 L15 5 L5 15 Z"/></svg>'), pointer;
-    }
+    html, body { max-width: 100%; overflow-x: hidden; position: relative; }
+    html { scroll-behavior: smooth; cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="fill:black; stroke:%23F59E0B; stroke-width:1px;"><path d="M0 0 L12 4 L4 12 Z"/></svg>'), auto; }
+    a, button, .cursor-pointer { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" style="fill:%23F59E0B; stroke:black; stroke-width:2px;"><path d="M0 0 L15 5 L5 15 Z"/></svg>'), pointer; }
 
     body {
         background-color: var(--persona-black);
-        background-image: 
-            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         background-size: 30px 30px;
         color: var(--persona-black);
         font-family: 'Space Mono', monospace;
-        padding-bottom: 2rem;
-        padding-left: 0; 
-        padding-right: 0;
+        padding-bottom: 4rem; padding-left: 0; padding-right: 0;
     }
 
-    /* --- EFEITO SCANLINE (SUTIL) --- */
+    h1, h2, h3, h4 { font-family: 'Righteous', cursive; text-transform: uppercase; letter-spacing: 1px; }
+
+    /* SCANLINE */
     body::after {
-        content: "";
-        position: fixed;
-        top: 0; left: 0; width: 100vw; height: 100vh;
+        content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
         background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-        background-size: 100% 4px;
-        z-index: 9999;
-        pointer-events: none;
-        opacity: 0.4;
+        background-size: 100% 4px; z-index: 9999; pointer-events: none; opacity: 0.4;
     }
 
-    h1, h2, h3, h4 {
-        font-family: 'Righteous', cursive;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
-
-    /* --- EFEITO GLITCH NO HOVER --- */
+    /* GLITCH */
     .glitch-hover { position: relative; display: inline-block; }
     .glitch-hover:hover {
         animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-        color: var(--persona-amber);
-        text-shadow: 2px 2px var(--persona-black);
+        color: var(--persona-amber); text-shadow: 2px 2px var(--persona-black);
     }
     @keyframes glitch-skew {
         0% { transform: skew(0deg); } 20% { transform: skew(-10deg); } 40% { transform: skew(10deg); }
         60% { transform: skew(-5deg); } 80% { transform: skew(5deg); } 100% { transform: skew(0deg); }
     }
 
-    /* --- JANELA PRINCIPAL (RESPONSIVA) --- */
+    /* JANELA PRINCIPAL */
     .persona-window {
-        background-color: var(--paper-white);
-        border: 4px solid var(--persona-black);
-        box-shadow: 5px 5px 0px var(--persona-amber);
-        margin: 1rem auto;
-        width: 94%; /* Largura segura no mobile */
-        max-width: 1200px;
-        position: relative;
-        transform: none; /* Sem rotação no mobile */
-        z-index: 10;
+        background-color: var(--paper-white); border: 4px solid var(--persona-black);
+        box-shadow: 5px 5px 0px var(--persona-amber); margin: 1rem auto;
+        width: 94%; max-width: 1200px; position: relative; transform: none; z-index: 10;
     }
-
     @media (min-width: 768px) {
-        .persona-window {
-            box-shadow: 10px 10px 0px var(--persona-amber);
-            margin: 2rem auto;
-            width: auto;
-            transform: rotate(-0.5deg); /* Rotação volta no PC */
-        }
-        body { padding-left: 10px; padding-right: 10px; }
+        .persona-window { box-shadow: 10px 10px 0px var(--persona-amber); margin: 2rem auto; width: auto; transform: rotate(-0.5deg); }
     }
 
     .window-bar {
-        background-color: var(--persona-black);
-        padding: 8px 12px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        color: var(--persona-amber);
-        border-bottom: 4px solid var(--persona-black);
+        background-color: var(--persona-black); padding: 8px 12px; display: flex; align-items: center; justify-content: space-between;
+        color: var(--persona-amber); border-bottom: 4px solid var(--persona-black);
     }
-
-    /* Efeito cursor piscando */
     .cursor-blink { animation: blink 1s step-end infinite; }
     @keyframes blink { 50% { opacity: 0; } }
-
     .traffic-lights { display: flex; gap: 8px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--paper-white); }
-    .dot-red { background-color: #ff4757; }
-    .dot-yellow { background-color: var(--persona-amber); }
-    .dot-green { background-color: #2ed573; }
+    .dot { width: 10px; height: 10px; border: 2px solid var(--paper-white); }
+    .dot-sm { width: 8px; height: 8px; border: 1px solid var(--persona-black); }
+    .dot-red { background-color: #ff4757; } .dot-yellow { background-color: var(--persona-amber); } .dot-green { background-color: #2ed573; }
 
-    /* --- BOTÕES --- */
+    /* BOTÕES */
     .btn-persona {
-        display: inline-block;
-        background-color: var(--persona-black);
-        color: var(--persona-amber);
-        padding: 0.8rem 2rem;
-        font-family: 'Righteous';
-        font-size: 1rem;
-        border: 2px solid var(--persona-amber);
-        transform: skew(-10deg); 
-        transition: all 0.2s;
-        text-decoration: none;
+        display: inline-block; background-color: var(--persona-black); color: var(--persona-amber);
+        padding: 0.8rem 2rem; font-family: 'Righteous'; font-size: 1rem;
+        border: 2px solid var(--persona-amber); transform: skew(-10deg); transition: all 0.2s;
         box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
     }
     .btn-persona span { display: inline-block; transform: skew(10deg); }
     .btn-persona:hover {
-        background-color: var(--persona-amber);
-        color: var(--persona-black);
-        border-color: var(--persona-black);
-        box-shadow: 5px 5px 0px var(--persona-black);
+        background-color: var(--persona-amber); color: var(--persona-black);
+        border-color: var(--persona-black); box-shadow: 5px 5px 0px var(--persona-black);
         transform: skew(-10deg) translate(-2px, -2px);
     }
 
     .btn-quick-link {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        background-color: #fff;
-        border: 2px solid var(--persona-black);
-        color: var(--persona-black);
-        padding: 0.4rem 0.6rem; 
-        font-family: 'Righteous';
-        font-size: 0.75rem;
-        text-decoration: none;
-        transition: all 0.2s;
-        margin-bottom: 6px;
-        box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        display: flex; align-items: center; justify-content: space-between; background-color: #fff;
+        border: 2px solid var(--persona-black); color: var(--persona-black); padding: 0.4rem 0.6rem; 
+        font-family: 'Righteous'; font-size: 0.8rem; text-decoration: none; transition: all 0.2s;
+        margin-bottom: 6px; box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
     }
-    .btn-quick-link:hover {
-        background-color: var(--persona-amber);
-        box-shadow: 4px 4px 0px var(--persona-black);
-        transform: translate(-2px, -2px);
-    }
+    .btn-quick-link:hover { background-color: var(--persona-amber); box-shadow: 4px 4px 0px var(--persona-black); transform: translate(-2px, -2px); }
     
     .highlight-title {
-        background-color: var(--persona-amber);
-        color: var(--persona-black);
-        padding: 0.2rem 1rem;
-        transform: skew(-5deg);
-        display: inline-block;
-        border: 3px solid var(--persona-black);
+        background-color: var(--persona-amber); color: var(--persona-black); padding: 0.2rem 1rem;
+        transform: skew(-5deg); display: inline-block; border: 3px solid var(--persona-black);
         box-shadow: 4px 4px 0px rgba(0,0,0,0.2);
     }
 
-    /* --- PASTAS (SERVIÇOS) --- */
-    .folder-tab-container { position: relative; margin-top: 20px; transition: transform 0.2s; }
+    /* PASTAS */
+    .folder-tab-container { position: relative; margin-top: 20px; transition: transform 0.2s; cursor: pointer; }
     .folder-tab-top {
-        width: 40%; height: 25px; background-color: var(--persona-amber);
-        border: 3px solid var(--persona-black); border-bottom: none;
-        border-radius: 8px 8px 0 0; position: absolute; top: -22px; left: 0; z-index: 0;
+        width: 40%; height: 25px; background-color: var(--persona-amber); border: 3px solid var(--persona-black);
+        border-bottom: none; position: absolute; top: -22px; left: 0; z-index: 0;
     }
     .folder-body {
         background-color: #fffbec; border: 3px solid var(--persona-black);
-        border-radius: 0 8px 8px 8px; padding: 1.5rem; position: relative; z-index: 1;
-        box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
+        padding: 1.5rem; position: relative; z-index: 1; box-shadow: 5px 5px 0px rgba(0,0,0,0.1);
     }
     .folder-tab-container:hover { transform: translateY(-5px); }
-    @media (min-width: 768px) {
-        .folder-tab-container:hover { transform: translateY(-5px) rotate(1deg); }
-    }
-    .folder-tab-container:hover .folder-body {
-        box-shadow: 8px 8px 0px var(--persona-black); background-color: var(--persona-amber); 
-    }
+    @media (min-width: 768px) { .folder-tab-container:hover { transform: translateY(-5px) rotate(1deg); } }
+    .folder-tab-container:hover .folder-body { box-shadow: 8px 8px 0px var(--persona-black); background-color: var(--persona-amber); }
 
     .dashed-hr { border: 0; border-top: 3px dashed var(--persona-black); margin: 3rem 0; opacity: 0.3; }
 
-    /* --- CARDS GALERIA --- */
+    /* GALERIA & LOGO */
     .gallery-card {
         background: white; padding: 10px; border: 3px solid var(--persona-black); transition: all 0.3s;
     }
     .gallery-card:hover {
-        border-color: var(--persona-amber); transform: scale(1.02);
-        box-shadow: 5px 5px 0px var(--persona-black); z-index: 10;
+        border-color: var(--persona-amber); transform: scale(1.02); box-shadow: 5px 5px 0px var(--persona-black); z-index: 10;
     }
-    @media (min-width: 768px) {
-        .gallery-card:hover { transform: scale(1.05) rotate(-2deg); box-shadow: 8px 8px 0px var(--persona-black); }
-    }
+    @media (min-width: 768px) { .gallery-card:hover { transform: scale(1.05) rotate(-2deg); box-shadow: 8px 8px 0px var(--persona-black); } }
     
-    /* --- LOGO STICKER (CLEAN - SEM FITA) --- */
     .logo-sticker {
-        transform: rotate(-2deg);
-        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        max-width: 280px;
-        width: 100%;
-        filter: drop-shadow(4px 4px 0px var(--persona-black)); 
-        position: relative; 
+        transform: rotate(-2deg); transition: all 0.3s; max-width: 280px; width: 100%;
+        filter: drop-shadow(4px 4px 0px var(--persona-black)); position: relative; 
     }
-    @media (min-width: 768px) {
-        .logo-sticker { max-width: 320px; transform: rotate(-3deg); filter: drop-shadow(5px 5px 0px var(--persona-black)); }
-    }
-    .logo-sticker:hover {
-        transform: rotate(1deg) scale(1.02);
-        filter: drop-shadow(4px 4px 0px var(--persona-amber));
-        cursor: help;
-    }
+    @media (min-width: 768px) { .logo-sticker { max-width: 320px; transform: rotate(-3deg); filter: drop-shadow(5px 5px 0px var(--persona-black)); } }
+    .logo-sticker:hover { transform: rotate(1deg) scale(1.02); filter: drop-shadow(4px 4px 0px var(--persona-amber)); cursor: help; }
 
     .bg-paper-white { background-color: var(--paper-white); }
-    .modal-overlay { background-color: rgba(0, 0, 0, 0.9); }
+
+    /* MODAIS */
+    .modal-overlay { 
+        background-color: rgba(0, 0, 0, 0.9); z-index: 50; 
+        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center; 
+    }
+
+    .folder-window {
+        background-color: var(--paper-white); border: 4px solid var(--persona-black);
+        box-shadow: 0 0 0 4px var(--persona-amber);
+        width: 95%; max-width: 1000px; height: 85vh; display: flex; flex-direction: column; position: relative;
+        animation: popIn 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes popIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+    #videoModalOverlay { z-index: 100; }
+
+    /* FECHAR GIRATÓRIO */
+    .btn-close-rotate {
+        background-color: var(--persona-black); color: var(--persona-amber);
+        border: 2px solid var(--persona-amber); transition: all 0.3s ease-out;
+    }
+    .btn-close-rotate:hover {
+        transform: rotate(90deg) scale(1.1);
+        background-color: var(--persona-amber); color: var(--persona-black);
+        border-color: var(--persona-black);
+    }
 </style>
 </head>
 <body class="p-0 md:p-8">
 
-  <nav class="fixed top-2 md:top-4 left-1/2 transform -translate-x-1/2 z-50 w-[96%] md:w-11/12 max-w-4xl">
-      <div class="bg-black text-amber-500 border-2 border-amber-500 p-2 md:p-3 flex justify-between items-center shadow-[3px_3px_0px_#fff] md:shadow-[4px_4px_0px_#fff] font-bold font-mono rounded-sm">
-          <span class="hidden md:inline text-base">QUARTOBLOCO_OS // V.8.0</span>
+  <nav class="fixed top-2 md:top-4 left-1/2 transform -translate-x-1/2 z-40 w-[96%] md:w-11/12 max-w-4xl">
+      <div class="bg-black text-amber-500 border-2 border-amber-500 p-2 md:p-3 flex justify-between items-center shadow-[3px_3px_0px_#fff] md:shadow-[4px_4px_0px_#fff] font-bold font-mono">
+          <span class="hidden md:inline text-base">QUARTOBLOCO_OS // V.26.0</span>
           <span class="md:hidden text-[10px]">QB_OS</span>
-          
-          <div class="flex gap-2 md:gap-8 text-[10px] md:text-base">
-              <a href="#portfolio" class="hover:text-white hover:underline decoration-wavy">TRABALHOS</a>
-              <a href="#servicos" class="hover:text-white hover:underline decoration-wavy">SERVIÇOS</a>
+          <div class="flex gap-3 md:gap-8 text-[10px] md:text-base">
+              <a href="#servicos" class="hover:text-white hover:underline decoration-wavy">ARQUIVOS</a>
               <a href="#sobre" class="hover:text-white hover:underline decoration-wavy">SOBRE</a>
               <a href="#contato" class="hover:text-white hover:underline decoration-wavy">CONTATO</a>
           </div>
@@ -291,48 +226,44 @@
                         Arquitetando som e imagem com textura. <br>
                         Produção musical e design direto do quartobloco.
                     </p>
-                    <a href="#portfolio" class="btn-persona w-full md:w-auto text-center">
-                        <span>VER PROJETOS</span>
+                    <a href="#servicos" class="btn-persona w-full md:w-auto text-center">
+                        <span>EXPLORAR ARQUIVOS</span>
                     </a>
                 </div>
 
                 <div class="w-full md:w-1/2 flex justify-center md:justify-end">
                     <div class="bg-white border-4 border-black shadow-[6px_6px_0px_#F59E0B] p-1 w-full max-w-md transform md:rotate-1 hover:rotate-0 transition duration-300">
-                        <div class="flex justify-between items-center border-b-2 border-black pb-2 mb-4 px-2 pt-2">
-                            <div class="flex gap-2">
-                                <div class="w-3 h-3 rounded-full bg-red-400 border border-black"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-400 border border-black"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
+                        <div class="flex items-center justify-between border-b-2 border-black pb-2 mb-4 px-2 pt-2 bg-gray-50">
+                            <div class="flex gap-1.5">
+                                <div class="dot-sm bg-[#ff4757]"></div>
+                                <div class="dot-sm bg-[#F59E0B]"></div>
+                                <div class="dot-sm bg-[#2ed573]"></div>
                             </div>
-                            <div class="text-xs font-mono text-gray-400">quick_links.exe</div>
+                            <div class="text-xs font-mono text-gray-400 ml-auto">quick_links.exe</div>
                         </div>
-
-                        <div class="grid grid-cols-2 gap-2 md:gap-4 p-2">
+                        
+                        <div class="grid grid-cols-2 gap-2 p-2">
                             <div class="flex flex-col items-center justify-center">
-                                <img src="profileamrv1.jpg" onerror="this.src='https://placehold.co/300x300/111/F59E0B?text=PROFILE'" class="w-full aspect-square object-cover border-2 border-black shadow-sm rounded-sm mb-2" loading="lazy">
+                                <img src="profileamrv1.jpg" class="w-full aspect-square object-cover border-2 border-black shadow-sm mb-2">
                                 <div class="text-center">
-                                    <h3 class="text-lg md:text-xl leading-none text-black">victor</h3>
-                                    <p class="text-[10px] md:text-xs font-mono text-gray-500 mt-1">@victorcosendey</p>
+                                    <h3 class="text-lg leading-none text-black">victor</h3>
+                                    <p class="text-[10px] font-mono text-gray-500">@victorcosendey</p>
                                 </div>
                             </div>
-                            <div class="flex flex-col justify-center">
-                                <a href="https://open.spotify.com/intl-pt/artist/24F5H4nsbIEd2YTv4lPsQW?si=cJuafluCSqaqjEVBJv4uvg" target="_blank" class="btn-quick-link">
-                                    <span>spotify</span> <i class="fab fa-spotify"></i>
+                            <div class="flex flex-col justify-center gap-2">
+                                <a href="https://open.spotify.com/intl-pt/artist/24F5H4nsbIEd2YTv4lPsQW?si=cJuafluCSqaqjEVBJv4uvg" target="_blank" class="block bg-white border-2 border-black px-2 py-1 text-xs font-bold hover:bg-amber-500 hover:shadow-[2px_2px_0px_#000] transition flex justify-between items-center">
+                                    SPOTIFY <i class="fab fa-spotify quick-link-icon"></i>
                                 </a>
-                                <a href="https://www.youtube.com/@charliemlz" target="_blank" class="btn-quick-link">
-                                    <span>youtube</span> <i class="fab fa-youtube"></i>
+                                <a href="https://www.youtube.com/@charliemlz" target="_blank" class="block bg-white border-2 border-black px-2 py-1 text-xs font-bold hover:bg-amber-500 hover:shadow-[2px_2px_0px_#000] transition flex justify-between items-center">
+                                    YOUTUBE <i class="fab fa-youtube quick-link-icon"></i>
                                 </a>
-                                <a href="https://www.instagram.com/victorcosendey" target="_blank" class="btn-quick-link">
-                                    <span>instagram</span> <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://x.com/mclin_" target="_blank" class="btn-quick-link">
-                                    <span>twitter</span> <i class="fab fa-twitter"></i>
+                                <a href="https://www.instagram.com/victorcosendey" target="_blank" class="block bg-white border-2 border-black px-2 py-1 text-xs font-bold hover:bg-amber-500 hover:shadow-[2px_2px_0px_#000] transition flex justify-between items-center">
+                                    INSTAGRAM <i class="fab fa-instagram quick-link-icon"></i>
                                 </a>
                             </div>
                         </div>
-
                         <div class="border-t-2 border-black mt-2 pt-2 text-center">
-                            <a href="mailto:victorcosendey@outlook.com?subject=Contato%20pelo%20Site&body=oi,%20tenho%20interesse%20em%20trabalhar%20com%20voce" class="text-[10px] md:text-xs font-mono text-amber-600 hover:underline">contact me -></a>
+                            <a href="mailto:victorcosendey@outlook.com" class="text-[10px] md:text-xs font-mono text-amber-600 hover:underline">contact me -></a>
                         </div>
                     </div>
                 </div>
@@ -345,32 +276,32 @@
             <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-20">
                 <div class="flex justify-center order-2 md:order-1 relative">
                     <div class="logo-sticker relative">
-                        <img src="logoquartoblocosemfundo.png" alt="Logo Quartobloco" class="w-full h-auto block relative z-10" loading="lazy">
+                        <img src="logoquartoblocosemfundo.png" alt="Logo" class="w-full h-auto block" loading="lazy">
                     </div>
                 </div>
-
                 <div class="order-1 md:order-2">
                     <h2 class="text-3xl md:text-4xl mb-4 md:mb-6"><i class="fas fa-cube text-amber-500 mr-2"></i>SOBRE_O_BLOCO</h2>
                     <div class="text-base md:text-lg space-y-4 text-gray-700 leading-relaxed font-medium">
-                        <p>O quartobloco é um laboratório criativo de arte digital.</p>
-                        <p class="bg-black text-white inline-block px-2 transform -skew-x-3">A arte precisa de textura.</p>
-                        <p>É onde o orgânico encontra o digital. Onde o som ganha forma e a imagem, ritmo.</p>
+                        <p>O quartobloco é um laboratório criativo de arte digital. A arte precisa de textura.</p>
+                        <p class="bg-black text-white inline-block px-2 transform -skew-x-3">É onde o orgânico encontra o digital.</p>
                     </div>
                 </div>
             </div>
-
             <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
                 <div class="flex justify-center order-2 md:order-2">
                     <div class="gallery-card transform md:rotate-2 max-w-sm">
-                        <img src="charlieformado.jpg" onerror="this.src='https://placehold.co/400x500/333/F59E0B?text=FOTO+VICTOR'" class="w-full border border-gray-200" loading="lazy">
+                        <img src="charlieformado.jpg" class="w-full border border-gray-200" loading="lazy">
                     </div>
                 </div>
                 <div class="order-1 md:order-1">
-                    <h2 class="text-3xl md:text-4xl mb-4 md:mb-6"><i class="fas fa-user-circle text-amber-500 mr-2"></i>SOBRE_MIM</h2>
-                    <div class="text-base md:text-lg space-y-4 text-gray-700 leading-relaxed font-medium">
-                        <p>Desde 2020, desenvolvo meu trabalho autoral (uma fusão de indie, rap, rock e lo-fi) e hoje venho expandindo esse universo para a produção de novos projetos musicais.</p>
-                        <p class="bg-black text-white inline-block px-2 transform -skew-x-3">Produtor, Músico & Artista.</p>
-                        <p>Meu foco é a identidade sonora: construir uma assinatura que traduza conceitos, sentimentos e estética. As referências vêm de jogos, animes e filmes, e ajudam a guiar tanto o som quanto a identidade visual dos projetos.</p>
+                    <h2 class="text-3xl md:text-4xl mb-4 md:mb-6 flex items-center"><i class="fas fa-user-circle text-amber-500 mr-2"></i>SOBRE_MIM</h2>
+                    <div class="text-base md:text-lg space-y-4 text-gray-700 leading-relaxed font-medium font-mono">
+                        <p class="mb-6">Desde 2020, desenvolvo meu trabalho autoral (uma fusão de indie, rap, rock e lo-fi) e hoje venho expandindo esse universo para a produção de novos projetos musicais.</p>
+                        
+                        <span class="bg-black text-white inline-block px-3 py-1 mb-6 text-xl font-bold transform -skew-x-2">Produtor, Músico & Artista.</span>
+                        
+                        <p class="mb-6">Meu foco é a identidade sonora: construir uma assinatura que traduza conceitos, sentimentos e estética. As referências vêm de jogos, animes e filmes, e ajudam a guiar tanto o som quanto a identidade visual dos projetos.</p>
+                        
                         <p>No processo, a textura é o centro. Trabalho na interseção entre samples e gravações orgânicas, buscando um equilíbrio entre o digital e o humano, entre a memória e o presente.</p>
                     </div>
                 </div>
@@ -379,109 +310,46 @@
 
         <hr class="dashed-hr">
 
-        <section id="portfolio" class="mb-24">
-            <div class="flex justify-between items-center mb-10">
-                <h2 class="highlight-title text-2xl md:text-3xl">DIR: /PROJETOS</h2>
-            </div>
-
-            <div class="mb-16">
-                <h3 class="text-lg md:text-xl font-bold mb-4 flex items-center">
-                    <i class="fas fa-music mr-2 text-amber-500"></i> ARQUIVOS DE ÁUDIO
-                </h3>
-                <div class="bg-gray-100 p-4 md:p-6 border-2 border-dashed border-gray-400 rounded">
-                     <p class="text-xs font-bold mb-2 font-mono">PLAYLIST: PRODUÇÕES</p>
-                     <iframe src="https://open.spotify.com/embed/playlist/4poFFnGn2jXHd9zKRPIyvI?utm_source=generator&theme=0" width="100%" height="360" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border: 2px solid black; border-radius: 4px;" loading="lazy"></iframe>
-                </div>
-            </div>
-
-            <div>
-                <h3 class="text-lg md:text-xl font-bold mb-6 flex items-center">
-                    <i class="fas fa-eye mr-2 text-amber-500"></i> CAPAS & VISUALIZERS
-                </h3>
-
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8">
-                    <div class="cursor-pointer" onclick="openImageModal('capas-albuns/charliecharlie1.jpg', 'INSISTE EM FICAR', 'ÁLBUM', 'Colagem digital com estética fanzine. Referências a Tokusatsu e sonhos perdidos.')">
-                        <div class="gallery-card">
-                            <img src="capas-albuns/charliecharlie1.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+1'" class="w-full aspect-square object-cover border border-black" loading="lazy">
-                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">charlie, charlie</div>
-                        </div>
-                    </div>
-                    <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/charliecharlie2.mp4', 'VERSUS!', 'EP', 'Fusão Radiohead + Sonic. Camadas sobrepostas e nostalgia.')">
-                        <div class="gallery-card">
-                            <div class="relative">
-                                <img src="capas-albuns/charliecharlie2.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+2'" class="w-full aspect-square object-cover border border-black" loading="lazy">
-                                <div class="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 bg-black/50 transition">
-                                    <i class="fas fa-play text-white text-3xl"></i>
-                                </div>
-                            </div>
-                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">VERSUS! (EP)</div>
-                        </div>
-                    </div>
-                    <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/charliecharlieemadeinheaven3.mp4', 'MAÇÃS & MÁQUINAS', 'SINGLE', 'Glitch art saturada. Caos visual organizado.')">
-                         <div class="gallery-card">
-                            <img src="capas-albuns/charliecharlieemadeinheaven3.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+3'" class="w-full aspect-square object-cover border border-black" loading="lazy">
-                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">maçãs & máq.</div>
-                        </div>
-                    </div>
-                    <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/charliecharlie4.mp4', 'MEMORY CARD', 'SINGLE', 'Foto de foto. Camadas analógicas de memória.')">
-                         <div class="gallery-card">
-                            <img src="capas-albuns/charliecharlie4.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+4'" class="w-full aspect-square object-cover border border-black" loading="lazy">
-                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">memory card</div>
-                        </div>
-                    </div>
-                    <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/madeinheaven1.mp4', 'MS 9999', 'ÁLBUM', 'Cyberpunk, code rain e falhas digitais.')">
-                         <div class="gallery-card">
-                            <img src="capas-albuns/madeinheaven1.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+5'" class="w-full aspect-square object-cover border border-black" loading="lazy">
-                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">made in heaven</div>
-                        </div>
-                    </div>
-                    <div class="cursor-pointer" onclick="openVideoModal('capas-albuns/canvas/charlicharlieekai5.mp4', 'VOCÊ PARECE UM ZUMBI', 'SINGLE', 'Colagem apocalíptica. Desenho vs Realidade.')">
-                         <div class="gallery-card">
-                            <img src="capas-albuns/charlicharlieekai5.jpg" onerror="this.src='https://placehold.co/300x300/black/amber?text=CAPA+6'" class="w-full aspect-square object-cover border border-black" loading="lazy">
-                            <div class="mt-2 text-[10px] md:text-xs font-bold uppercase text-center bg-black text-white py-1">zumbi</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <section id="servicos" class="mb-24">
-            <h2 class="highlight-title text-2xl md:text-3xl mb-10 mx-auto block w-max">O QUE VAMOS CRIAR?</h2>
+            <h2 class="highlight-title text-2xl md:text-3xl mb-10 mx-auto block w-max">ARQUIVOS DO SISTEMA</h2>
+            
             <div class="grid md:grid-cols-3 gap-8 pt-4">
-                <div class="folder-tab-container">
+                <div class="folder-tab-container" onclick="openFolder('audio')">
                     <div class="folder-tab-top"></div>
-                    <div class="folder-body">
+                    <div class="folder-body hover:bg-amber-100 transition">
                         <h3 class="text-xl font-bold mb-4 border-b-2 border-black pb-2">PROD, MIX & MASTER</h3>
-                        <ul class="text-sm space-y-3 font-bold text-gray-700">
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Prod. Beat / Instrumental</li>
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Mixagem Pro</li>
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Master Streaming</li>
+                        <ul class="text-sm space-y-2 font-bold text-gray-600 mb-4">
+                            <li>• Beat / Instrumental</li>
+                            <li>• Mixagem Pro</li>
+                            <li>• Master Streaming</li>
                         </ul>
-                        <a href="https://ig.me/m/victorcosendey" target="_blank" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">VAMOS LÁ</a>
+                        <button class="block w-full text-center bg-black text-amber-500 py-2 font-bold uppercase text-sm hover:text-white transition">[ ABRIR PASTA ]</button>
                     </div>
                 </div>
-                <div class="folder-tab-container" style="margin-top: 10px;">
+
+                <div class="folder-tab-container" style="margin-top: 10px;" onclick="openFolder('visual')">
                     <div class="folder-tab-top"></div>
-                    <div class="folder-body">
+                    <div class="folder-body hover:bg-amber-100 transition">
                         <h3 class="text-xl font-bold mb-4 border-b-2 border-black pb-2">IDENTIDADE VISUAL</h3>
-                        <ul class="text-sm space-y-3 font-bold text-gray-700">
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Capas (Art)</li>
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Visualizers (Canvas)</li>
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Direção de Arte</li>
+                        <ul class="text-sm space-y-2 font-bold text-gray-600 mb-4">
+                            <li>• Capas (Art)</li>
+                            <li>• Visualizers</li>
+                            <li>• Direção de Arte</li>
                         </ul>
-                        <a href="https://ig.me/m/victorcosendey" target="_blank" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">VAMOS LÁ</a>
+                        <button class="block w-full text-center bg-black text-amber-500 py-2 font-bold uppercase text-sm hover:text-white transition">[ ABRIR PASTA ]</button>
                     </div>
                 </div>
-                <div class="folder-tab-container" style="margin-top: 30px;">
+
+                <div class="folder-tab-container" style="margin-top: 20px;" onclick="openFolder('gestao')">
                     <div class="folder-tab-top"></div>
-                    <div class="folder-body">
+                    <div class="folder-body hover:bg-amber-100 transition">
                         <h3 class="text-xl font-bold mb-4 border-b-2 border-black pb-2">GESTÃO & LANÇAMENTO</h3>
-                        <ul class="text-sm space-y-3 font-bold text-gray-700">
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Perfil de Artista</li>
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Distribuição Digital</li>
-                            <li class="flex items-center"><i class="fas fa-check-square mr-2"></i> Registro & Letras</li>
+                        <ul class="text-sm space-y-2 font-bold text-gray-600 mb-4">
+                            <li>• Distribuição Digital</li>
+                            <li>• Registro de Obras</li>
+                            <li>• Perfil de Artista</li>
                         </ul>
-                        <a href="https://ig.me/m/victorcosendey" target="_blank" class="block mt-6 text-center bg-black text-amber-500 py-2 hover:text-white transition font-bold uppercase text-sm">VAMOS LÁ</a>
+                        <button class="block w-full text-center bg-black text-amber-500 py-2 font-bold uppercase text-sm hover:text-white transition">[ ABRIR PASTA ]</button>
                     </div>
                 </div>
             </div>
@@ -491,13 +359,13 @@
             <div class="border-4 border-black p-6 md:p-12 text-center bg-white shadow-[6px_6px_0px_#000] md:shadow-[10px_10px_0px_#000] transform md:rotate-1">
                 <h2 class="text-2xl md:text-4xl mb-6 break-words font-bold uppercase">MENSAGEM_DO_SISTEMA</h2>
                 <p class="mb-8 max-w-xl mx-auto text-base md:text-lg font-medium">
-                    Parcerias, produções ou apenas para trocar ideia sobre música e arte. O laboratório está aberto.
+                    Parcerias, produções ou apenas para trocar ideia.
                 </p>
                 <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-6">
                     <a href="https://instagram.com/victorcosendey" target="_blank" class="btn-persona w-full md:w-auto text-center">
                         <span><i class="fab fa-instagram mr-2"></i> INSTAGRAM</span>
                     </a>
-                    <a href="mailto:victorcosendey@outlook.com?subject=Contato%20pelo%20Site&body=oi,%20tenho%20interesse%20em%20trabalhar%20com%20voce" class="btn-persona w-full md:w-auto text-center">
+                    <a href="mailto:victorcosendey@outlook.com?subject=Contato&body=oi,%20tenho%20interesse%20em%20trabalhar%20com%20voce" class="btn-persona w-full md:w-auto text-center">
                          <span><i class="far fa-envelope mr-2"></i> E-MAIL</span>
                     </a>
                 </div>
@@ -505,107 +373,212 @@
         </section>
     </div>
     
-    <div class="bg-black text-white p-2 text-[10px] md:text-xs font-mono flex justify-between uppercase">
-        <span>Memória: 84% Usada</span>
-        <span>© 2025 Quartobloco</span>
+    <div class="bg-black text-white p-2 text-[10px] font-mono flex justify-between">
+        <span>RAM: 84% USED</span>
+        <span>© 2025 quartobloco</span>
     </div>
   </div>
 
-  <div id="capaModal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-overlay p-4">
-      <div class="bg-white border-4 border-black shadow-[0_0_0_4px_#F59E0B] w-full max-w-3xl flex flex-col md:flex-row relative animate-[bounce_0.1s_ease-out]">
-          <button onclick="closeModal()" class="absolute -top-6 -right-6 bg-red-600 text-white border-4 border-black w-10 h-10 md:w-12 md:h-12 flex items-center justify-center font-bold text-lg md:text-xl transition-all duration-300 ease-out hover:scale-110 hover:rotate-90 z-20 shadow-[4px_4px_0px_#000]">
+  <div id="folderAudio" class="hidden modal-overlay">
+      <div class="folder-window">
+          <div class="bg-black text-amber-500 p-2 flex justify-between items-center border-b-4 border-black">
+             <span class="font-mono font-bold pl-2 text-xs md:text-sm">DIR: /AUDIO_PROJECTS</span>
+             <button onclick="closeFolder('folderAudio')" class="w-8 h-8 flex items-center justify-center btn-close-rotate font-bold text-white border-2 border-white">X</button>
+          </div>
+          <div class="p-4 md:p-8 overflow-y-auto h-full bg-gray-100">
+              <div class="bg-white border-2 border-dashed border-gray-400 p-4 mb-8">
+                   <h3 class="text-lg md:text-xl font-bold mb-4 font-mono">PLAYLIST: PRODUÇÕES</h3>
+                   <iframe src="https://open.spotify.com/embed/playlist/4poFFnGn2jXHd9zKRPIyvI?utm_source=generator&theme=0" width="100%" height="400" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" style="border: 2px solid black;"></iframe>
+                   <div class="mt-8 text-center">
+                        <p class="mb-4 font-mono text-sm font-bold">Vamos produzir juntos.</p>
+                        <a href="https://ig.me/m/victorcosendey" target="_blank" class="btn-persona text-sm">INICIAR PROJETO</a>
+                   </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="folderGestao" class="hidden modal-overlay">
+      <div class="folder-window">
+          <div class="bg-black text-amber-500 p-2 flex justify-between items-center border-b-4 border-black">
+             <span class="font-mono font-bold pl-2 text-xs md:text-sm">DIR: /ARTIST_MANAGEMENT</span>
+             <button onclick="closeFolder('folderGestao')" class="w-8 h-8 flex items-center justify-center btn-close-rotate font-bold text-white border-2 border-white">X</button>
+          </div>
+          <div class="p-4 md:p-8 overflow-y-auto h-full bg-gray-100 flex flex-col items-center">
+              <div class="text-center mb-8">
+                  <h3 class="text-2xl font-bold mb-2">ARTISTAS ADMINISTRADOS</h3>
+                  <p class="text-gray-600 font-mono text-sm">Gestão de perfil e distribuição digital.</p>
+              </div>
+              
+              <div class="w-full max-w-3xl space-y-6">
+                  <div class="bg-black p-1 border-2 border-black shadow-[6px_6px_0px_#F59E0B]">
+                      <iframe style="border-radius:0px !important" src="https://open.spotify.com/embed/artist/24F5H4nsbIEd2YTv4lPsQW?si=3aOQGZy1TkCiMYGHU68d0A?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                  </div>
+                  <div class="bg-black p-1 border-2 border-black shadow-[6px_6px_0px_#F59E0B]">
+                      <iframe style="border-radius:0px !important" src="https://open.spotify.com/embed/artist/3BxpCnyzSZMZgm6qd9SsJg?si=Un5_Lh_bTEe5fhc0MJBw8w?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                  </div>
+              </div>
+
+              <div class="mt-12 text-center">
+                  <a href="https://ig.me/m/victorcosendey" target="_blank" class="btn-persona text-sm">FALAR SOBRE LANÇAMENTO</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="folderVisual" class="hidden modal-overlay">
+      <div class="folder-window">
+          <div class="bg-black text-amber-500 p-2 flex justify-between items-center border-b-4 border-black">
+             <span class="font-mono font-bold pl-2 text-xs md:text-sm">DIR: /PORTFOLIO_VISUAL</span>
+             <button onclick="closeFolder('folderVisual')" class="w-8 h-8 flex items-center justify-center btn-close-rotate font-bold text-white border-2 border-white">X</button>
+          </div>
+          
+          <div class="p-4 md:p-8 overflow-y-auto h-full bg-gray-100">
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                   <div class="cursor-pointer" onclick="openProject('charlie1')">
+                        <div class="gallery-card">
+                            <img src="capas-albuns/charliecharlie1.jpg" class="w-full aspect-square object-cover border border-black">
+                            <div class="mt-2 text-xs font-bold text-center bg-black text-white py-1">INSISTE</div>
+                        </div>
+                   </div>
+                   <div class="cursor-pointer" onclick="openProject('charlie2')">
+                        <div class="gallery-card">
+                            <img src="capas-albuns/charliecharlie2.jpg" class="w-full aspect-square object-cover border border-black">
+                            <div class="mt-2 text-xs font-bold text-center bg-black text-white py-1">VERSUS!</div>
+                        </div>
+                   </div>
+                   <div class="cursor-pointer" onclick="openProject('madeinheaven')">
+                        <div class="gallery-card">
+                            <img src="capas-albuns/madeinheaven1.jpg" class="w-full aspect-square object-cover border border-black">
+                            <div class="mt-2 text-xs font-bold text-center bg-black text-white py-1">MS 9999</div>
+                        </div>
+                   </div>
+                   <div class="cursor-pointer" onclick="openProject('zumbi')">
+                        <div class="gallery-card">
+                            <img src="capas-albuns/charlicharlieekai5.jpg" class="w-full aspect-square object-cover border border-black">
+                            <div class="mt-2 text-xs font-bold text-center bg-black text-white py-1">ZUMBI</div>
+                        </div>
+                   </div>
+                   <div class="cursor-pointer" onclick="openProject('macas')">
+                        <div class="gallery-card">
+                            <img src="capas-albuns/charliecharlieemadeinheaven3.jpg" class="w-full aspect-square object-cover border border-black">
+                            <div class="mt-2 text-xs font-bold text-center bg-black text-white py-1">MAÇÃS</div>
+                        </div>
+                   </div>
+                   <div class="cursor-pointer" onclick="openProject('memory')">
+                        <div class="gallery-card">
+                            <img src="capas-albuns/charliecharlie4.jpg" class="w-full aspect-square object-cover border border-black">
+                            <div class="mt-2 text-xs font-bold text-center bg-black text-white py-1">MEMORY</div>
+                        </div>
+                   </div>
+              </div>
+              <div class="mt-12 text-center">
+                  <a href="https://ig.me/m/victorcosendey" target="_blank" class="btn-persona text-sm">CRIAR IDENTIDADE</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div id="videoModalOverlay" class="fixed inset-0 z-[100] hidden justify-center items-center bg-black/95 p-4">
+      <div class="bg-white border-4 border-amber-500 w-full max-w-5xl max-h-[90vh] flex flex-col md:flex-row relative animate-[bounce_0.1s_ease-out]">
+          
+          <button onclick="closeVideoModal()" class="absolute top-2 right-2 md:-top-10 md:right-0 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center btn-close-rotate transition font-bold z-50 text-white md:border-2 md:border-white">
               X
           </button>
-
-          <div class="w-full md:w-1/2 bg-black p-1 flex items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-black">
-             <img id="modalImage" src="" class="max-w-full max-h-[40vh] md:max-h-[60vh] border-2 border-white hidden object-contain">
-             <video id="modalVideo" class="max-w-full max-h-[40vh] md:max-h-[60vh] border-2 border-white hidden" loop autoplay muted playsinline></video>
+          
+          <div class="w-full md:w-2/3 bg-black flex items-center justify-center border-b-4 md:border-b-0 md:border-r-4 border-amber-500 relative p-0 md:p-2 h-[40vh] md:h-auto">
+             <img id="modalImage" src="" class="w-full h-full object-contain hidden">
+             <video id="modalVideo" class="w-full h-full object-contain hidden" loop autoplay muted playsinline></video>
           </div>
 
-          <div class="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center bg-paper-white">
-             <span id="modalType" class="bg-black text-amber-500 px-2 py-1 text-xs md:text-sm font-bold self-start mb-4 font-mono border border-amber-500 transform -skew-x-10"></span>
-             <h3 id="modalTitle" class="text-xl md:text-2xl font-bold mb-4 uppercase leading-none text-black"></h3>
-             <div class="text-xs md:text-sm font-mono leading-relaxed border-l-4 border-amber-500 pl-4 text-gray-800 font-bold">
-                 <p id="modalText"></p>
-             </div>
-             <button onclick="closeModal()" class="mt-10 text-left underline font-bold hover:text-amber-600 uppercase font-mono text-xs">
-                 < [ESC] FECHAR
-             </button>
+          <div class="w-full md:w-1/3 p-6 bg-[#fdfbf7] flex flex-col justify-center font-mono overflow-y-auto">
+             <h3 id="modalTitle" class="text-xl md:text-2xl font-bold mb-4 uppercase tracking-wider"></h3>
+             <span id="modalType" class="bg-black text-amber-500 text-sm font-bold px-3 py-1 self-start mb-6 transform -skew-x-6"></span>
+             <p id="modalText" class="text-sm md:text-base leading-relaxed font-medium text-gray-800"></p>
+             <button onclick="closeVideoModal()" class="mt-8 text-sm underline font-bold hover:text-amber-500 transition text-left">VOLTAR PARA PASTA</button>
           </div>
       </div>
   </div>
 
   <script>
+    // DADOS DOS PROJETOS
+    const projects = {
+        'charlie1': {
+            title: 'INSISTE EM FICAR', type: 'ÁLBUM',
+            img: 'capas-albuns/charliecharlie1.jpg',
+            desc: 'Colagem digital com estética fanzine. Referências a Tokusatsu e sonhos perdidos.'
+        },
+        'charlie2': {
+            title: 'VERSUS!', type: 'EP',
+            video: 'capas-albuns/canvas/charliecharlie2.mp4',
+            desc: 'Fusão Radiohead + Sonic. Camadas sobrepostas e nostalgia.'
+        },
+        'madeinheaven': {
+            title: 'MS 9999', type: 'ÁLBUM',
+            video: 'capas-albuns/canvas/madeinheaven1.mp4',
+            desc: 'Cyberpunk, code rain e falhas digitais.'
+        },
+        'zumbi': {
+            title: 'VOCÊ PARECE UM ZUMBI', type: 'SINGLE',
+            video: 'capas-albuns/canvas/charlicharlieekai5.mp4',
+            desc: 'Colagem apocalíptica. Desenho vs Realidade.'
+        },
+        'macas': {
+            title: 'MAÇÃS & MÁQUINAS', type: 'SINGLE',
+            video: 'capas-albuns/canvas/charliecharlieemadeinheaven3.mp4',
+            desc: 'Glitch art saturada. Caos visual organizado.'
+        },
+        'memory': {
+            title: 'MEMORY CARD', type: 'SINGLE',
+            video: 'capas-albuns/canvas/charliecharlie4.mp4',
+            desc: 'Foto de foto. Camadas analógicas de memória.'
+        }
+    };
+
     const text = "C:\\USUARIO\\VICTOR\\PORTFOLIO.EXE";
     const typingElement = document.getElementById('typewriter');
     let i = 0;
     function typeWriter() {
-        if (i < text.length) {
-            typingElement.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typeWriter, 50);
-        }
+        if (i < text.length) { typingElement.innerHTML += text.charAt(i); i++; setTimeout(typeWriter, 50); }
     }
     window.onload = typeWriter;
 
-    const capaModal = document.getElementById('capaModal');
-    const modalVideo = document.getElementById('modalVideo');
-    const modalImage = document.getElementById('modalImage');
-    const modalTitle = document.getElementById('modalTitle');
-    const modalType = document.getElementById('modalType');
-    const modalText = document.getElementById('modalText');
-
-    function openVideoModal(videoSrc, title, type, text) {
-        modalImage.classList.add('hidden');
-        modalVideo.classList.add('hidden');
-        
-        if(videoSrc && videoSrc.trim() !== '') {
-            modalVideo.src = videoSrc;
-            modalVideo.classList.remove('hidden');
-            modalVideo.play().catch(e => console.log("Autoplay bloqueado"));
-        } else {
-             modalImage.src = 'https://placehold.co/600x400/111/F59E0B?text=VIDEO+OFFLINE';
-             modalImage.classList.remove('hidden');
-        }
-
-        modalTitle.innerText = title;
-        modalType.innerText = type;
-        modalText.innerText = text;
-        capaModal.classList.remove('hidden');
-        capaModal.classList.add('flex');
+    function openFolder(id) {
+        document.querySelectorAll('.modal-overlay').forEach(el => el.classList.add('hidden')); 
+        const el = document.getElementById(id === 'audio' ? 'folderAudio' : id === 'visual' ? 'folderVisual' : 'folderGestao');
+        el.classList.remove('hidden'); el.classList.add('flex');
         document.body.style.overflow = 'hidden';
     }
-
-    function openImageModal(imageSrc, title, type, text) {
-        modalVideo.classList.add('hidden');
-        modalVideo.pause();
-        modalImage.src = imageSrc;
-        modalImage.classList.remove('hidden');
-        modalTitle.innerText = title;
-        modalType.innerText = type;
-        modalText.innerText = text;
-        capaModal.classList.remove('hidden');
-        capaModal.classList.add('flex');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        capaModal.classList.add('hidden');
-        capaModal.classList.remove('flex');
-        modalVideo.pause();
+    function closeFolder(id) {
+        document.getElementById(id).classList.add('hidden'); document.getElementById(id).classList.remove('flex');
         document.body.style.overflow = 'auto';
     }
 
-    window.onclick = function(event) {
-        if (event.target == capaModal) {
-            closeModal();
+    const videoOverlay = document.getElementById('videoModalOverlay');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalImage = document.getElementById('modalImage');
+
+    function openProject(key) {
+        const p = projects[key];
+        modalImage.classList.add('hidden'); modalVideo.classList.add('hidden');
+        
+        if(p.video) {
+            modalVideo.src = p.video; modalVideo.classList.remove('hidden'); modalVideo.play();
+        } else {
+            modalImage.src = p.img; modalImage.classList.remove('hidden');
         }
+        
+        document.getElementById('modalTitle').innerText = p.title;
+        document.getElementById('modalType').innerText = p.type;
+        document.getElementById('modalText').innerText = p.desc;
+        
+        videoOverlay.classList.remove('hidden'); videoOverlay.classList.add('flex');
     }
-    document.addEventListener('keydown', function(event) {
-        if (event.key === "Escape") {
-            closeModal();
-        }
-    });
+
+    function closeVideoModal() {
+        videoOverlay.classList.add('hidden'); videoOverlay.classList.remove('flex');
+        modalVideo.pause();
+    }
   </script>
 </body>
 </html>
